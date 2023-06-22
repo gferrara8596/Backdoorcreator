@@ -5,15 +5,15 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  build_amd64:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install xmllint
-      run: sudo apt-get install -y libxml2-utils libcurl4-openssl-dev
+    - name: Install curl
+      run: sudo apt-get install -y libcurl4-openssl-dev
   
     - name: Build executable
       run: make all
@@ -23,6 +23,28 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: executable
+        name: ss_mal_x64
+        path: ss_mal
+        
+  build_arm64:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - uses: pguyot/arm-runner-action@v2
+
+    - name: Install curl
+      run: sudo apt-get install -y libcurl4-openssl-dev
+  
+    - name: Build executable
+      run: make all
+      working-directory: ${{ github.workspace }}
+      
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ss_mal_arm64
         path: ss_mal
 
