@@ -2,8 +2,7 @@ name: Genera eseguibile Python
 
 on:
   push:
-    branches:
-      - main 
+    branches: [ "master" ]
 
 jobs:
   build:
