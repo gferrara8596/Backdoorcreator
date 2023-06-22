@@ -12,6 +12,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Install xmllint
+      run: sudo apt-get install -y libxml2-utils libcurl4-openssl-dev
+  
     - name: Build executable
       run: make all
       working-directory: ${{ github.workspace }}
