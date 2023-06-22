@@ -1,4 +1,4 @@
 all:
-	gcc linux.c -o st_mal -pthread -lcurl
+	gcc linux.c -o ss_mal -pthread -lcurl
 clean:
-	rm -f st_mal
+	rm -f ss_mal
