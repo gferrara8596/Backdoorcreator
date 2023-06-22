@@ -30,6 +30,11 @@ int upload_file_ftp(const char *ftp_url, const char *local_file_path) {
         if (local_file) {
             // Imposta l'URL FTP di destinazione
             curl_easy_setopt(curl, CURLOPT_URL, ftp_url);
+
+            char* uname = "unina";
+            char* pwd = "unina";
+            curl_easy_setopt(curl, CURLOPT_USERNAME, uname);
+            curl_easy_setopt(curl, CURLOPT_PASSWORD, pwd);
             
             // Imposta la funzione di callback per scrivere i dati su un file
             curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
