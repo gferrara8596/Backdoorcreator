@@ -31,5 +31,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: executable
-        path: dist/your_script
+        path: dist/backdoorcreate
 
